@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 model = pickle.load(open("final_model.pkl", "rb"))
 preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 shap.initjs()
 
 st.title("📊 Credit Risk Prediction App")
