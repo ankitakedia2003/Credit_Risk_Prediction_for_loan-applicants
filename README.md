@@ -1,86 +1,114 @@
-# 📊 Credit Risk Prediction App
 
-Welcome to the **Credit Risk Prediction App** — a Streamlit-based web application that predicts whether a loan applicant is likely to be a **good** or **bad** credit risk, using the German Credit dataset.
+# Credit Risk Prediction for Loan Applicants
 
-🌐 **Live App**: [Launch Here](https://creditriskpredictionforloan-applicant.streamlit.app/)
+This project uses machine learning to predict whether a loan applicant poses a **good or bad credit risk**. Built with a focus on accuracy, explainability, and user accessibility, the model is deployed as an interactive **Streamlit web app** that offers real-time predictions with SHAP-based explanations.
 
 ---
 
-## 🚀 Quick Start
+## 🔍 Problem Statement
 
-### 🖥️ Run Locally
+Financial institutions must assess credit risk accurately to reduce defaults and improve lending efficiency. The original German Credit dataset lacked clearly defined risk labels, making model evaluation difficult. To address this, a **labeled version with binary outcomes** (good/bad credit risk) was used, allowing for better classification and clarity.
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-📁 Project Structure
-graphql
-Copy
-Edit
+---
+
+## 📁 Project Structure
+
+```
 CreditRiskApp/
 ├── app.py                    # Streamlit UI & prediction logic
 ├── final_model.pkl           # Trained LightGBM model (with early stopping)
 ├── preprocessor.pkl          # Preprocessing pipeline (scaler + encoder)
-├── model_development.ipynb   # Jupyter Notebook for full ML pipeline
-├── requirements.txt          # List of dependencies
+├── model_development.ipynb   # Full ML pipeline (EDA, modeling, SHAP)
+├── requirements.txt          # Required Python packages
 └── .streamlit/
-    └── config.toml           # Theme settings for Streamlit UI
-📓 Notebook
-All steps from data preprocessing to final model evaluation are documented in the Jupyter notebook:
+    └── config.toml           # Custom theme for the app
+```
 
-👉 model_development.ipynb
+---
 
-Feature selection & encoding
+## 📓 Notebook Highlights: `model_development.ipynb`
 
-Manual early stopping with LightGBM
+- Exploratory Data Analysis (EDA)
+- Handling missing values and outliers
+- Categorical encoding and feature engineering
+- Model comparisons: Logistic Regression, Random Forest, XGBoost, LightGBM
+- Manual early stopping with LightGBM
+- Performance metrics: Accuracy, F1-Score, ROC-AUC
+- SHAP-based interpretation for explainability
+- Exporting final model and preprocessor
 
-Performance evaluation (accuracy, ROC, F1)
+---
 
-SHAP-based model interpretability
+## 🧠 Features
 
-Final model export as .pkl
+- Interactive UI to input applicant details  
+- Instant classification: **Good** or **Bad** credit risk  
+- Probability confidence score  
+- SHAP visualizations:
+  - Force plot
+  - Waterfall plot  
+- Top 5 feature importance chart  
+- Transparent, explainable decisions for credit evaluation
 
-🧠 Features
-Interactive UI to enter applicant details
+---
 
-Instant predictions (Good or Bad risk)
+## 🎨 App Theme
 
-Probability confidence for each prediction
+Custom theme set via `.streamlit/config.toml`:
 
-SHAP-based feature explanation (force & waterfall plot)
-
-🎨 App Theme
-This app uses a soft pastel theme configured via .streamlit/config.toml:
-
-toml
-Copy
-Edit
+```toml
 [theme]
 primaryColor = "#A78BFA"
 backgroundColor = "#FDF6FD"
 secondaryBackgroundColor = "#FFFFFF"
 textColor = "#4B5563"
 font = "sans serif"
-🌐 Deployment
-You can deploy this app to Streamlit Cloud by connecting your GitHub repo. Make sure to include:
+```
 
-app.py
+---
 
-requirements.txt
+## 🚀 Getting Started
 
-final_model.pkl
+### Step 1: Clone the Repository
 
-preprocessor.pkl
+```bash
+git clone https://github.com/ankitakedia2003/Credit_Risk_Prediction_for_loan-applicants.git
+cd Credit_Risk_Prediction_for_loan-applicants
+```
 
-.streamlit/config.toml
+### Step 2: Install Dependencies
 
-✨ Credits
-Built with using:
+```bash
+pip install -r requirements.txt
+```
 
-LightGBM
+### Step 3: Run the App
 
-scikit-learn
+```bash
+streamlit run app.py
+```
 
-SHAP
+Make sure `final_model.pkl`, `preprocessor.pkl`, and `.streamlit/config.toml` are present in the directory.
 
-Streamlit
+---
+
+## 📈 Final Model & Results
+
+- **Model**: LightGBM with early stopping  
+- **Accuracy**: ~78%  
+- **F1-Score**: ~0.76  
+- **Validation**: Stratified train-test split with cross-validation  
+- **Top Features**: Loan duration, credit amount, account balances, job category, loan purpose  
+- **Interpretability**: SHAP integration for full model transparency
+
+## 🌐 Live Demo
+
+- **Streamlit App**: [creditriskpredictionforloan-applicant.streamlit.app](https://creditriskpredictionforloan-applicant.streamlit.app)  
+
+## ✨ Built With
+
+- [LightGBM](https://lightgbm.readthedocs.io/)
+- [scikit-learn](https://scikit-learn.org/)
+- [SHAP](https://shap.readthedocs.io/)
+- [Streamlit](https://streamlit.io/)
+
