@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+lightgbm
+shap
+scikit-learn
+matplotlib
+ipython  # Required for shap.initjs or SHAP in general
